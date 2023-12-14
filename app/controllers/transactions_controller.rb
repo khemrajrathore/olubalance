@@ -116,6 +116,7 @@ class TransactionsController < ApplicationController
 
   def transfer_accounts
     account_id = params[:account_id]
+    passportNumber = params[:passport_number]
     @transfer_accounts = current_user.accounts.where('active = ?', 'true').where('account_type != ?', 'credit').where(
       'id != ?', account_id
     ).decorate
